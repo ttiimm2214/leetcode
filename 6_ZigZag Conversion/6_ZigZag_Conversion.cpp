@@ -1,7 +1,8 @@
 /*
  * Leetcode 6_ZigZag_Conversion
  *
- * Compile: g++ 6_ZigZag_Conversion.cpp -o result
+ * Compile: g++ -std=c++11 6_ZigZag_Conversion.cpp -o result
+ * 多一個 -std=c++11 主要是讓可以使用Range-based for loop  ： for (char x:s ) 加這項跟compiler 新舊有關 
  * Execute: ./result
  */
 
@@ -29,9 +30,30 @@ P     I
 */
 
 #include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
 
+int main(){
+//test cast
+	string s = "PAYPALISHIRING";
+	int numRows=3;
+// solution
+	vector<string> vec;
+	int DIRECTION=1;
+	string result;
+	int LAYER=0;
+	for(char x : s){
+		vec[LAYER] += x;
+		if(LAYER==0||LAYER< numRows-1){
+			DIRECTION = !DIRECTION; 
+		}
+		LAYER = LAYER + DIRECTION;
+	}
 
-void main(){
+	for (string x : vec){
+		result += x; 
+		cout << result <<endl;
+	}
 
-	
 }
