@@ -37,13 +37,17 @@ using namespace std;
 int main(){
 //test cast
 	string s = "PAYPALISHIRING";
-	int numRows=3;
+	int numRows=1;
 // solution
-	vector<string> vec(numRows);
+	// vector<string> vec(numRows); // ** 更正為下行 需要比較字串的大小來決定推幾層
+	vector<string> vec(min(int(s.size()),numRows));
 	bool DIRECTION=false;  // true 為 往上   false 為 往下 
 	string result;
 	int LAYER=0;
-	int change;
+	int loop=min(int(s.size()),numRows);
+
+	if (numRows==1)				// corner case 要特別注意
+		cout <<s<<endl;
 
 	for(char x :s){
 		// cout <<LAYER<<endl;
@@ -55,8 +59,11 @@ int main(){
 	}
 
 
-	for (int i = 0; i < numRows; i++){
+	// for (int i = 0; i < numRows; i++){  ＊＊更正為 下面 由於 numRows 的大小不一定為幾層 由loop決定
+	// 	result += vec[LAYER];
+	// }
+	for (int i = 0; i < loop; i++){
 		result += vec[i];
 	}
-	cout << result<<endl;
+	cout << result <<endl;
 }
