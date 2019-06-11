@@ -39,21 +39,24 @@ int main(){
 	string s = "PAYPALISHIRING";
 	int numRows=3;
 // solution
-	vector<string> vec;
-	int DIRECTION=1;
+	vector<string> vec(numRows);
+	bool DIRECTION=false;  // true 為 往上   false 為 往下 
 	string result;
 	int LAYER=0;
-	for(char x : s){
+	int change;
+
+	for(char x :s){
+		// cout <<LAYER<<endl;
 		vec[LAYER] += x;
-		if(LAYER==0||LAYER< numRows-1){
-			DIRECTION = !DIRECTION; 
-		}
-		LAYER = LAYER + DIRECTION;
+		if(LAYER==0||LAYER == numRows-1)   // 當 LAYER = 0 與LAYER = 2時 更換方向
+			DIRECTION = !DIRECTION;
+		// LAYER = LAYER + DIRECTION; //這樣直接相加會造成 Segmentation fault: 11
+		LAYER += DIRECTION ? 1 : -1; 	// 當DIRECTION 為true +1 false -1
 	}
 
-	for (string x : vec){
-		result += x; 
-		cout << result <<endl;
-	}
 
+	for (int i = 0; i < numRows; i++){
+		result += vec[i];
+	}
+	cout << result<<endl;
 }
