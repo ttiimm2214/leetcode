@@ -1,7 +1,7 @@
 /*
  * Leetcode 128. Longest Consecutive Sequence
  *
- * Compile: g++ 128_L_C_S.cpp -o result
+ * Compile: g++ -std=c++11 128_L_C_S.cpp -o result
  * Execute: ./result
  */
 
@@ -16,6 +16,8 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
+#include <unordered_set>
 
 using namespace std;
 
@@ -29,5 +31,29 @@ int main(){
 	nums.push_back(3);
 	nums.push_back(2);
 //solution
-	cout << nums[0] <<endl;
+	unordered_set<int> temp(nums.begin(), nums.end());
+	int current_count, maxcount=0,current_number;
+	int test_count=0;
+
+
+	for(int i : temp){
+		if(temp.find(i-1)==temp.end()){
+			// test_count += 1; 	for test
+			// cout << i <<endl;	for test
+			current_count=1;
+			current_number=i;
+			while(temp.find(current_number+1) != temp.end()){
+				// test_count = test_count+1;	for test
+				current_number = current_number + 1;
+				current_count = current_count + 1;
+			}
+			maxcount=max(current_count,maxcount);
+		}
+	}
+	cout << maxcount <<endl;
 }
+
+
+
+
+
