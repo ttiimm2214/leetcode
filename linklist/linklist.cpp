@@ -29,6 +29,40 @@ struct link_list{
 };
 
 
+void printlist(link_list *head){
+	// link_list *print;
+	// print = head;
+	while(true){
+		cout << head->number <<endl;
+		head = head -> next;
+		if (head == NULL){
+			break;
+		}
+	}
+}
+
+
+void addfront(int x,link_list *head){
+	link_list *front;
+	front = new link_list;
+	front->number=x;
+	front->next=head;
+	head=front;
+	while(true){
+		cout << head->number <<endl;
+		head = head -> next;
+		if (head == NULL){
+			break;
+		}
+	}
+}
+
+
+
+
+
+
+
 int main(){
 // test case
 	link_list *head;		// 宣告 head 
@@ -48,7 +82,18 @@ int main(){
 	current -> number =4;
 	current -> next = NULL;
 
-// //印出
+
+//1. print the list 
+	// printlist(head);
+
+//2. add before the list 
+
+	// addfront(5,head);
+//3. add after the list 
+	
+	
+
+// //印出資料
 // 	link_list *print;
 // 	print = head;
 // 	while(true){
@@ -60,3 +105,5 @@ int main(){
 // 	}
 
 }
+
+
