@@ -26,29 +26,29 @@ Explanation: 342 + 465 = 807.
 
 using namespace std;
 
-struct Listnode
+struct ListNode
 {
 	int val;
-	Listnode *next;
+	ListNode *next;
 };
 
 
 int main(){
 //test case
-	Listnode *l1 = new Listnode;
-	Listnode *current1 = l1;
-	Listnode *l2 = new Listnode;
-	Listnode *current2 = l2;
+	ListNode *l1 = new ListNode;
+	ListNode *current1 = l1;
+	ListNode *l2 = new ListNode;
+	ListNode *current2 = l2;
 // input (2 -> 4 -> 3)
 	current1 -> val = 2;
 	current1 -> next = NULL;
 
-	current1 -> next = new Listnode;
+	current1 -> next = new ListNode;
 	current1 = current1 -> next;
 	current1 -> val = 4;
 	current1 -> next = NULL;
 
-	current1 -> next = new Listnode;
+	current1 -> next = new ListNode;
 	current1 = current1 -> next;
 	current1 -> val = 3;
 	current1 -> next = NULL;
@@ -57,50 +57,105 @@ int main(){
 	current2 -> val = 5;
 	current2 -> next = NULL;
 
-	current2 -> next = new Listnode;
+	current2 -> next = new ListNode;
 	current2 = current2 -> next;
 	current2 -> val = 6;
 	current2 -> next = NULL;
 
-	current2 -> next = new Listnode;
+	current2 -> next = new ListNode;
 	current2 = current2 -> next;
 	current2 -> val = 4;
 	current2 -> next = NULL;
 
 
 //ans 
-	Listnode *ans = new Listnode;
-	Listnode *temp = ans;
+	ListNode *ans = new ListNode;
+	ListNode *temp = ans;
 	int count = 0;
-	while (true){
-		temp -> val = l1 -> val + l2 -> val +count;
-		count = 0;
-		temp -> next = NULL;
-		if (temp -> val >= 10){
-			count = 1;
-			temp -> val = temp -> val % 10; 
-		}
-		else 
-			count = 0;
-		l1 = l1 -> next;
-		l2 = l2 -> next;		
-		if (l1 == NULL){
-			break;
-		}
-		else{
-			temp -> next = new Listnode;
-			temp = temp -> next;
-		}
-		// temp = temp ->next;
-		// temp -> next = NULL;
-		// l1 = l1 -> next;
-		// l2 = l2 -> next;
+	int carry;
+  
+// 按照順序加減 
+while(true){
+	if(l1){
+		count = count + l1 -> val;
+		l1 = l1 -> next; 
 	}
+	if (l2){
+		count = count + l2 -> val;
+		l2 = l2 -> next;
+	}
+	// 查看是否進位
+	carry = count /10;
+	count = count % 10;
+	temp -> val = count;
+	temp -> next = NULL;
+	count = carry;
+	//如果都為空 包含進位項 則離開
+	if (l1 == NULL && l2== NULL && count == 0){
+		break;
+	}
+	else{
+		temp -> next = new ListNode;
+		temp = temp -> next;
+	}
+}
+
+
+
+
+
+  // 如果其中一個lsit 為空list 則直接輸出  
+    // if (l1 -> val == 0){
+    //     return l2;
+    // }
+    // else if (l2 -> val == 0){
+    //     return l1;
+    // }
+          
+ // memory 用太多       
+	// while (true){
+	// 	if (l1 == NULL && l2 != NULL){
+ //            temp -> val = l2 -> val + count;
+ //            count = 0;
+ //            temp -> next = NULL;
+ //        }
+ //        else if (l2 == NULL && l1 != NULL){
+ //            temp -> val = l1 -> val + count;  
+ //            count = 0;
+ //        }
+ //        else if (l1 == NULL && l2 ==NULL && count ==1){
+ //            temp -> val = count;
+ //            count = 0;
+ //            temp -> next = NULL;
+ //        }
+ //        else {
+ //            temp -> val = l1 -> val +l2 -> val +count;
+ //            count = 0;
+ //            temp -> next = NULL;
+ //            l1 = l1 -> next;
+ //            l2 = l2 -> next; 
+ //        }
+        
+ //        if (temp -> val >= 10){
+ //            count = 1; 
+ //            temp -> val = temp -> val % 10;
+ //        }
+ //        else
+ //            count = 0;
+        
+ //        if (l1 == NULL && l2 == NULL && count ==0)
+ //            break;
+ //        else{
+       
+ //            temp -> next = new ListNode;
+ //            temp = temp -> next;
+ //        }
+ //    }
 	
 
 
 // print
-	Listnode *print =new Listnode;
+	ListNode *print =new ListNode;
 	print = ans;
 	while(true){
 		cout << print -> val << endl;
