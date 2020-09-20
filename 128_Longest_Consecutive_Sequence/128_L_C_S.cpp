@@ -37,7 +37,7 @@ int main(){
 
 
 	for(int i : temp){
-		if(temp.find(i-1)==temp.end()){
+		if(temp.find(i-1)==temp.end()){		//此步驟是為了要找連續數最小的值開始算 如果減一沒有找到就開始算
 			// test_count += 1; 	for test
 			// cout << i <<endl;	for test
 			current_count=1;

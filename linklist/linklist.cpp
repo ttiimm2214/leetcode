@@ -183,7 +183,7 @@ int main(){
 	// delete1(4,head);
 
 //5. reverse the list 
-	// reverse(head);	
+	// greverse(head);	
 
 
 // //印出資料

@@ -1,7 +1,7 @@
 /*
  * Leetcode 19.Remove Nth Node From End of List
  *
- * Compile: g++ 19_RNN.cpp -o result
+ * Compile: g++ 19_onepass_RNN.cpp -o result
  * Execute: ./result
  */
 

@@ -91,18 +91,24 @@ int main(){
 
 
 //
-cout << lists.size() << endl; 
+// Listnode *try1 = &lists[0];
+// while (try1 != NULL){
+// 	try1 = try1 -> next;
+// }
+
+
+
 
 // print the list 
-	// Listnode *print = new Listnode;
-	// print = &lists[2];
-	// while(true){
-	// 	cout << print -> val << endl;
-	// 	print = print -> next;
-	// 	if (print == NULL){
-	// 		break;
-	// 	} 
-	// }
+	Listnode *print = new Listnode;
+	print = &lists[0];
+	while(true){
+		cout << print -> val << endl;
+		print = print -> next;
+		if (print == NULL){
+			break;
+		} 
+	}
 
 
 }

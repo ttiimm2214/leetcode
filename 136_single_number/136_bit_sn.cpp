@@ -48,12 +48,12 @@ int main(){
 
 //ans
 	int result = 0;
-    // for (int i = 0; i < nums.size(); i++) {
-    //     result ^= nums[i];
-    // }
+    for (int i = 0; i < nums1.size(); i++) {
+        result ^= nums1[i];
+        cout << result <<endl;
+    }
  
-	result = 4 ^ 2;
-    cout<< result << endl;
+
  
  }
 

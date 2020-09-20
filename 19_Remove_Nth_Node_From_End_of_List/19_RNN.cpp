@@ -101,8 +101,6 @@ while (true){
 }
 
 
-
-
 // print
 	ListNode *print =new ListNode;
 	print = head;

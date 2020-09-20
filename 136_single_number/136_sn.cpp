@@ -2,7 +2,7 @@
 /*
  * Leetcode 136. Single Number
  *
- * Compile: g++ 136_sn.cpp -o result
+ * Compile: g++ -std=c++11 136_sn.cpp -o result
  * Execute: ./result
  */
 
@@ -58,14 +58,13 @@ for(int i = 0; i < nums.size(); i++){
 	}
 
 }
-unordered_set<string> :: iterator itr; 
-cout << *itr << endl;
-
-
-//print
-	// for (int i=0; i< nums1.size(); i++){
-	// 	cout << nums1[i] << endl;
+// print all	 
+	// for (auto const& i: numset){
+	// 	cout << i << endl;
 	// }
 
+// leetcode return 
+        unordered_set<int>::iterator iter = numset.begin();
+        cout << *iter;
 
 }
